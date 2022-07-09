@@ -10,9 +10,9 @@ This project was built with
 
 **Desktop**
 
-![Desktop_PokemonList](./public/PokemonList.jpg?raw=true "Desktop PokemonList")
+![Desktop_PokemonList](./public/PokemonList.png?raw=true "Desktop PokemonList")
 
-![Desktop_Pokemon](./public/Pokemon.jpg?raw=true "Desktop Pokemon")
+![Desktop_Pokemon](./public/Pokemon.png?raw=true "Desktop Pokemon")
 
 ### Instructions
 
