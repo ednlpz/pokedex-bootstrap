@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Table } from 'react-bootstrap'
-import SelectedPokemonContext from '../../components/Contexts/SelectedPokemonContext'
+import SelectedPokemonContext from '../../Contexts/SelectedPokemonContext'
 const StatTable = () => {
   const { pokemon } = useContext(SelectedPokemonContext)
 

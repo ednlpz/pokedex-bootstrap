@@ -1,4 +1,4 @@
-import PokemonSprite from '../../components/Pokemon/PokemonSprite/PokemonSprite'
+import PokemonSprite from './PokemonSprite'
 
 const SpriteContainer = ({ name, sprite }) => {
   return (

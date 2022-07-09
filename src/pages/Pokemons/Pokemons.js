@@ -4,13 +4,21 @@ import Layout from '../Layout/Layout'
 import CustomPagination from '../../components/Pagination/CustomPagination'
 import PokemonList from '../../components/PokemonList/PokemonList'
 import PaginationContext from '../../components/Contexts/PaginationContext'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const Pokemons = () => {
   const { currentPageNumber } = useParams()
   const itemsPerPageRef = useRef(10)
+  const navigate = useNavigate()
 
-  //Number(currentPageNumber - 1) was done to include the index 0
+  //redirect to page 1 of the list if the given currentPageNumber params is not a number
+  useEffect(() => {
+    if (isNaN(currentPageNumber)) {
+      navigate('/1', { replace: true })
+    }
+  }, [currentPageNumber, navigate])
+
+  //Number(currentPageNumber - 1) was done to ensure index 0 is included
   const [fetchLink, setFetchLink] = useState(
     `https://pokeapi.co/api/v2/pokemon?offset=${
       Number(currentPageNumber - 1) * itemsPerPageRef.current
@@ -32,9 +40,9 @@ const Pokemons = () => {
       value={{
         currentPageNumber: Number(currentPageNumber - 1),
         itemsPerPage: itemsPerPageRef.current,
-        maximumPageNumber: fetchStatus.current === 'success' && Math.ceil(
-          responseData.count / itemsPerPageRef.current
-        ),
+        maximumPageNumber:
+          fetchStatus.current === 'success' &&
+          Math.ceil(responseData.count / itemsPerPageRef.current),
       }}
     >
       <Layout>

@@ -1,5 +1,5 @@
 import { Col, Row } from 'react-bootstrap'
-import PokemonType from '../../components/Pokemon/PokemonDetails/PokemonType'
+import PokemonType from '../PokemonDetails/PokemonType'
 const PokemonTypeContainer = ({ types }) => {
   return (
     <Row className='d-flex flex-column items-center'>

@@ -39,41 +39,53 @@ const PokemonCard = ({ pokemonInformation }) => {
               : '/placeholder.png'
           }`}
         />
-
         <Card.Body>
-          <div className='justify-content-between d-flex'>
-            <Card.Title>{responseData.name}</Card.Title>
-            <Card.Title>#{responseData.id}</Card.Title>
-          </div>
-          <div className='justify-content-center d-flex'>
-            <PokemonDetails types={responseData.types} />
-          </div>
+          <PrimaryInformation responseData={responseData} />
+          <SecondaryInformation responseData={responseData} />
         </Card.Body>
       </Link>
     </Card>
-    // <div className='rounded-lg flex flex-col shadow-lg bg-slate-100 bn xl:w-80 w-72 h-[26rem] justify-self-center overflow-clip hover:-translate-y-2 hover:shadow-xl transition'>
-    //   {fetchStatus.current === 'success' && (
-    //     <Link className='contents' to={`/pokemon/${responseData.id}`}>
-    //       <>
-    //         <div className='flex self-center justify-center w-full'>
-    //           <span className='p-4 w-60'>
-    //             <PokemonSprite
-    //               name={responseData.name}
-    //               sprite={`${responseData.sprites.other['official-artwork'].front_default}`}
-    //             />
-    //           </span>
-    //         </div>
-
-    //         <PokemonDetails
-    //           id={responseData.id}
-    //           types={responseData.types}
-    //           name={responseData.name}
-    //         />
-    //       </>
-    //     </Link>
-    //   )}
-    // </div>
   )
 }
 
 export default memo(PokemonCard, isEqual)
+
+const PrimaryInformation = ({ responseData }) => {
+  return (
+    <div className='justify-content-between d-flex'>
+      <Card.Title>{responseData.name}</Card.Title>
+      <Card.Title>#{responseData.id}</Card.Title>
+    </div>
+  )
+}
+
+const SecondaryInformation = ({ responseData }) => {
+  return (
+    <div className='justify-content-center d-flex'>
+      <PokemonDetails types={responseData.types} />
+    </div>
+  )
+}
+
+// <div className='rounded-lg flex flex-col shadow-lg bg-slate-100 bn xl:w-80 w-72 h-[26rem] justify-self-center overflow-clip hover:-translate-y-2 hover:shadow-xl transition'>
+//   {fetchStatus.current === 'success' && (
+//     <Link className='contents' to={`/pokemon/${responseData.id}`}>
+//       <>
+//         <div className='flex self-center justify-center w-full'>
+//           <span className='p-4 w-60'>
+//             <PokemonSprite
+//               name={responseData.name}
+//               sprite={`${responseData.sprites.other['official-artwork'].front_default}`}
+//             />
+//           </span>
+//         </div>
+
+//         <PokemonDetails
+//           id={responseData.id}
+//           types={responseData.types}
+//           name={responseData.name}
+//         />
+//       </>
+//     </Link>
+//   )}
+// </div>

@@ -1,16 +1,26 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import useFetch from '../../components/Hooks/useFetch'
 import Layout from '../Layout/Layout'
 import SelectedPokemonContext from '../../components/Contexts/SelectedPokemonContext'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import { Row } from 'react-bootstrap'
-import HorizontalCard from './HorizontalCard'
+import HorizontalCard from '../../components/Pokemon/PokemonCard/HorizontalCard'
+import { useEffect } from 'react'
 
 const PokemonProfile = () => {
   const { id } = useParams()
+  const navigate = useNavigate()
+
   const [responseData, fetchStatus] = useFetch(
     `https://pokeapi.co/api/v2/pokemon/${id}/`
   )
+
+  //redirect to a pokemon with id #1 if given id in params is not a number
+  useEffect(() => {
+    if (isNaN(id)) {
+      navigate('pokemon/1', { replace: true })
+    }
+  }, [id, navigate])
 
   return (
     <Layout>

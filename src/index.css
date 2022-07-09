@@ -1,32 +1,11 @@
 @import './pokemon-types.css';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
-.saturate-150 {
-  filter: 'saturate(1.5)';
-}
 
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.shadow-smooth {
-  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.025),
-    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.036),
-    12.5px 12.5px 10px rgba(0, 0, 0, 0.045),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.054),
-    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.065),
-    100px 100px 80px rgba(0, 0, 0, 0.09);
-}
 
 .pokemonType {
   display: flex;

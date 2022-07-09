@@ -10,6 +10,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path={'/:currentPageNumber'} element={<Pokemons />} />
         <Route path='/pokemon/:id' element={<PokemonProfile />} />
+        <Route path='*' element={<PokemonProfile />} />
+
       </Routes>
     </BrowserRouter>
   )
